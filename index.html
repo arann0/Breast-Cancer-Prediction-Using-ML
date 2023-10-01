@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Varela Round' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Breast Cancer Prediction</title>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1 style="color:white;">Breast Cancer Prediction</h1>
+            <img src="{{ url_for('static', filename='Breast_Cancer_Awareness.jpeg') }}" alt="Breast Cancer" class="sidebar-image">
+        </div>
+        <div class="content">
+            <h1>Enter Cell Details</h1>
+            <form id="prediction-form" method="POST">
+                <div class="form-row">
+                    <label for="mean_radius">Radius Mean:</label>
+                    <input type="number" step="any" name="mean_radius" id="mean_radius" required>
+                    <label for="mean_texture">Texture Mean:</label>
+                    <input type="number" step="any" name="mean_texture" id="mean_texture" required>
+                    <label for="mean_perimeter">Perimeter Mean:</label>
+                    <input type="number" step="any" name="mean_perimeter" id="mean_perimeter" required>
+                </div>
+                <div class="form-row">
+                   <label for="mean_area">Area Mean:</label>
+                   <input type="number" step="any" name="mean_area" id="mean_area" required>
+                   <label for="mean_smoothness">Smoothness Mean:</label>
+                   <input type="number" step="any" name="mean_smoothness" id="mean_smoothness" required>
+                </div>
+                <div class="button"><button type="submit" id="predict-button">Predict Cancer</button></div>
+            </form>
+            {% if result %}
+            <p class="result">Prediction: {{ result }}</p>
+            {% endif %}
+            <div class="sidebar-footer">
+                <p>A Project Work for Arificial Intelligence Cource <br> Under Hire and Train Program<br></p>
+                <p>
+                    <img src="{{ url_for('static', filename='Primacy_Infotech.PNG') }}" alt="Primacy Info Tech" class="footer-image">
+                    <img src="{{ url_for('static', filename='EDGE.jpg') }}" alt="Enhancing Digital Government and Economy (EDGE)" class="footer-image">
+                    <img src="{{ url_for('static', filename='BCC.png') }}" alt="Bangladesh Computer Council (BCC)" class="footer-image">
+                    <img src="{{ url_for('static', filename='ict-division.jpg') }}" alt="ICT Division, Bangladesh" class="footer-image">
+                    <img src="{{ url_for('static', filename='digital_bangladesh.jpg') }}" alt="Digital Bangladesh" class="footer-image">
+                </p>
+                
+            </div>
+	
+        </div>
+    </div>
+
+</body>
+</html>
+
